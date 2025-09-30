@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note_Nest - Home</title>
+</head>
+<style>
+    body {
+        background-color: #1a1a1a;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .header {
+        height: 60px;
+        width: 95%;
+        margin: 20px auto;
+        border: 2px solid #333;
+        display: flex;
+        justify-content: space-between;
+        border-radius: 10px;
+        background: linear-gradient(200deg, rgb(12, 12, 82), rgb(7, 123, 123));
+    }
+
+    .left {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        margin-top: 18px;
+        margin-left: 25px;
+        font-size: 26px;
+        color: #4a9eff;
+        font-weight: bold;
+    }
+
+    .right ul {
+        display: flex;
+        gap: 35px;
+        list-style-type: none;
+        font-size: 16px;
+        margin-right: 25px;
+        margin-top: 20px;
+        color: #ddd;
+    }
+
+    .right ul li {
+        cursor: pointer;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+
+    .right ul li:hover {
+        background-color: #3a3a3a;
+        color: #4a9eff;
+    }
+
+    .ad {
+        margin: 30px auto;
+        width: 90%;
+        max-width: 1000px;
+        height: 250px;
+        background-color: #252525;
+        border: 2px solid #333;
+        border-radius: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .loader {
+        width: 60px;
+        height: 60px;
+        position: relative;
+    }
+
+    .loader-circle {
+        width: 100%;
+        height: 100%;
+        border: 4px solid rgba(74, 158, 255, 0.2);
+        border-top-color: #4a9eff;
+        border-radius: 20%;
+        animation: spin 1s linear infinite;
+    }
+
+    .loader-dots {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        gap: 8px;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+        background-color: #4a9eff;
+        border-radius: 50%;
+        animation: bounce 1.4s ease-in-out infinite;
+    }
+
+    .dot:nth-child(1) {
+        animation-delay: -0.32s;
+    }
+
+    .dot:nth-child(2) {
+        animation-delay: -0.16s;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes bounce {
+        0%, 80%, 100% {
+            transform: scale(0);
+            opacity: 0.5;
+        }
+        40% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    .cards {
+        margin: 40px auto;
+        display: grid;
+        grid-template-columns: repeat(3, 270px);
+        gap: 35px;
+        justify-content: center;
+        padding-bottom: 50px;
+    }
+
+    .card {
+        background: linear-gradient(125deg, rgb(4, 20, 43), rgb(4, 55, 47));
+        height: 220px;
+        border: 2px solid #3a3a3a;
+        border-radius: 12px;
+        overflow: hidden;
+        transition: all 0.3s;
+        cursor: pointer;
+    }
+
+    .card:hover {
+        transform: translateY(-8px);
+        border-color: #4a9eff;
+        box-shadow: 0 8px 20px rgba(74, 158, 255, 0.3);
+    }
+
+    .card a {
+        display: block;
+        height: 100%;
+        width: 100%;
+    }
+
+    .card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 22px;
+        font-weight: bold;
+        color: #ddd;
+    }
+
+    .card a {
+        text-decoration: none;
+        color: #ddd;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @media (max-width: 900px) {
+        .cards {
+            grid-template-columns: repeat(2, 250px);
+            gap: 25px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .header {
+            flex-direction: column;
+            height: auto;
+            padding: 15px;
+            width: 90%;
+        }
+
+        .left {
+            margin: 0;
+            font-size: 22px;
+            text-align: center;
+        }
+
+        .right ul {
+            margin: 10px 0 0 0;
+            gap: 15px;
+            font-size: 14px;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .cards {
+            grid-template-columns: 1fr;
+            width: 90%;
+            margin: 30px auto;
+            gap: 20px;
+        }
+
+        .card {
+            height: 120px;
+            font-size: 20px;
+        }
+
+        .ad {
+            height: 150px;
+            width: 90%;
+        }
+    }
+
+    @media (max-width: 400px) {
+        .header {
+            width: 95%;
+            flex-direction: row;
+            height: 50px;
+            padding: 10px;
+        }
+
+        .left {
+            font-size: 18px;
+            margin-top: 0;
+            margin-left: 10px;
+        }
+
+        .right ul {
+            gap: 8px;
+            font-size: 12px;
+            margin-top: 0;
+            margin-right: 10px;
+        }
+
+        .card {
+            height: 100px;
+            font-size: 18px;
+        }
+
+        .ad {
+            height: 120px;
+        }
+    }
+
+    .right ul a {
+        text-decoration: none;
+        color: white;
+    }
+</style>
+
+<body>
+    <div class="header">
+        <div class="left">Note_Nest</div>
+        <div class="right">
+            <ul>
+                <li><a href="/home">HOME</a> </li>
+                <li><a href="/about">ABOUT</a></li>
+                <li><a href="/contact">CONTACT</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="ad">
+        <div class="loader">
+            <div class="loader-circle"></div>
+            <div class="loader-dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cards">
+        <div class="card">
+            <a href="/maths">Mathematics</a>
+        </div>
+        <div class="card">
+            <a href="/dsgt">DSGT</a>
+        </div>
+        <div class="card">
+            <a href="/excel">Excel</a>
+        </div>
+        <div class="card">
+            <a href="/java">Java</a>
+        </div>
+        <div class="card">
+            <a href="/coa">COA</a>
+        </div>
+        <div class="card">
+            <a href="/aoa">AOA</a>
+        </div>
+        <div class="card">
+            <a href="/Others">Others</a>
+        </div>
+    </div>
+
+</body>
+
+</html>

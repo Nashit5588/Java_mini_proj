@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Note_Nest</title>
+</head>
+<style>
+    body {
+        background-color: #1a1a1a;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .header {
+        height: 60px;
+        width: 95%;
+        margin: 20px auto;
+        border: 2px solid #333;
+        display: flex;
+        justify-content: space-between;
+        border-radius: 10px;
+        background: linear-gradient(200deg, rgb(12, 12, 82), rgb(7, 123, 123));
+    }
+
+    .left {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        margin-top: 18px;
+        margin-left: 25px;
+        font-size: 26px;
+        color: #4a9eff;
+        font-weight: bold;
+    }
+
+    .right ul {
+        display: flex;
+        gap: 35px;
+        list-style-type: none;
+        font-size: 16px;
+        margin-right: 25px;
+        margin-top: 20px;
+        color: #ddd;
+    }
+
+    .right ul li {
+        cursor: pointer;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+
+    .right ul li:hover {
+        background-color: #3a3a3a;
+        color: #4a9eff;
+    }
+
+    .right ul a {
+        text-decoration: none;
+        color: white;
+    }
+
+    .about {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        justify-content: center;
+        gap: 20px;
+        padding: 20px;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+
+    .card {
+        width: 100%;
+        background-color: #3a3a3a;
+        border: 5px solid rgb(59, 59, 126);
+        border-radius: 25px;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .card h2, .card h3 {
+        color: beige;
+        text-align: center;
+    }
+
+    .card p {
+        color: #4a9eff;
+        text-align: center;
+        line-height: 1.6;
+    }
+
+    .prob {
+        background-color: #8f4141;
+        border: 5px solid rgb(59, 59, 126);
+    }
+
+    .prob h3 {
+        color: beige;
+    }
+
+    .prob p {
+        color: bisque;
+    }
+
+    .prob2 {
+        background-color: #a36767;
+        border: 5px solid rgb(0, 0, 0);
+    }
+
+    .prob2 h3 {
+        color: beige;
+    }
+
+    .prob2 p {
+        color: bisque;
+    }
+
+    .mission {
+        background-color: #2d4a2d;
+        border: 5px solid rgb(40, 70, 40);
+    }
+
+    .mission h3 {
+        color: beige;
+    }
+
+    .mission p {
+        color: #90ee90;
+    }
+
+    .helps {
+        background-color: #3a3a3a;
+        border: 5px solid rgb(59, 59, 126);
+    }
+
+    .helps h3 {
+        color: beige;
+    }
+
+    .helps ul {
+        list-style: none;
+        padding: 0;
+        color: #4a9eff;
+        text-align: center;
+    }
+
+    .helps ul li {
+        padding: 5px 0;
+    }
+
+    .personal {
+        background-color: #4a4a2d;
+        border: 5px solid rgb(80, 80, 50);
+    }
+
+    .personal h3 {
+        color: beige;
+    }
+
+    .personal p {
+        color: #f0e68c;
+    }
+
+    .cta {
+        background-color: #2d3a4a;
+        border: 5px solid rgb(50, 70, 90);
+    }
+
+    .cta h3 {
+        color: beige;
+    }
+
+    .cta p {
+        color: #87ceeb;
+    }
+
+    @media (max-width: 400px) {
+        .header {
+            width: 95%;
+            flex-direction: row;
+            height: 50px;
+            padding: 10px;
+        }
+
+        .left {
+            font-size: 18px;
+            margin-top: 0;
+            margin-left: 10px;
+        }
+
+        .right ul {
+            gap: 8px;
+            font-size: 12px;
+            margin-top: 0;
+            margin-right: 10px;
+        }
+
+        .about {
+            padding: 10px;
+        }
+    }
+</style>
+
+<body>
+    <div class="header">
+        <div class="left">Note_Nest</div>
+        <div class="right">
+            <ul>
+                <li><a href="/">HOME</a></li>
+                <li><a href="/about">ABOUT</a></li>
+                <li><a href="/contact">CONTACT</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="about">
+        <div class="card">
+            <h2>Welcome To Note_Nest</h2>
+            <p>"This platform is created by students, for students — with one clear goal: making study resources accessible, organized, and stress-free"</p>
+        </div>
+
+        <div class="card prob">
+            <h3>The Problem We Faced</h3>
+            <p>"During college semesters, students often face difficulty finding proper notes. Some miss lectures, some notes get lost in WhatsApp forwards, and sometimes the material is scattered. Before exams, this creates unnecessary stress and wastes time."</p>
+        </div>
+
+        <div class="card prob2">
+            <h3>What This Site Offers</h3>
+            <p>"This website brings together complete semester notes in one place, organized subject-wise and unit-wise. Instead of wasting time searching, students can directly focus on studying and revising."</p>
+        </div>
+
+        <div class="card mission">
+            <h3>Our Mission & Vision</h3>
+            <p><strong>Mission:</strong> "To help every student in the class get equal access to quality notes without struggling."</p>
+            <p><strong>Vision:</strong> "To build a reliable study hub that grows semester by semester and benefits future batches too."</p>
+        </div>
+
+        <div class="card helps">
+            <h3>How It Helps You</h3>
+            <ul>
+                <li>• Save time</li>
+                <li>• Easy access (anytime, anywhere)</li>
+                <li>• Reliable and updated notes</li>
+                <li>• Helpful for revision before exams</li>
+            </ul>
+        </div>
+
+        <div class="card personal">
+            <h3>A Personal Note</h3>
+            <p>"I created this platform not as a project, but as a helping hand for my classmates. If even one student benefits and scores better because of these notes, then the purpose of this website is fulfilled."</p>
+        </div>
+
+        <div class="card cta">
+            <h3>Start Learning Today</h3>
+            <p>"Explore the notes section and start learning smarter today! If you have feedback or want to contribute notes, feel free to reach out."</p>
+        </div>
+    </div>
+
+</body>
+
+</html>

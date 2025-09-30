@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSGT Notes - Discrete Structures & Graph Theory</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      min-height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #e0e0e0;
+    }
+
+    .header {
+      height: 80px;
+      width: 100%;
+      background: rgba(15, 52, 96, 0.95);
+      backdrop-filter: blur(15px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      border-bottom: 2px solid rgba(0, 194, 203, 0.3);
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .back-btn {
+      background: linear-gradient(135deg, #00c2cb, #0088a3);
+      color: white;
+      text-decoration: none;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .back-btn:hover {
+      background: linear-gradient(135deg, #00d4df, #009bb8);
+      transform: translateX(-3px);
+      box-shadow: 0 5px 15px rgba(0, 194, 203, 0.4);
+    }
+
+    .back-btn::before {
+      content: '←';
+      font-size: 18px;
+    }
+
+    .header-title {
+      font-size: 24px;
+      font-weight: bold;
+      background: linear-gradient(135deg, #00c2cb, #7de2f0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      margin-top: 100px;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      min-height: calc(100vh - 100px);
+    }
+
+    .content-wrapper {
+      max-width: 900px;
+      width: 100%;
+    }
+
+    .page-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .page-title h1 {
+      font-size: 36px;
+      background: linear-gradient(135deg, #00c2cb, #7de2f0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 10px;
+    }
+
+    .page-title p {
+      color: #a0a0a0;
+      font-size: 16px;
+    }
+
+    .notes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .note-card {
+      background: rgba(30, 41, 59, 0.6);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 194, 203, 0.2);
+      border-radius: 15px;
+      padding: 25px;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .note-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 194, 203, 0.1), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .note-card:hover::before {
+      left: 100%;
+    }
+
+    .note-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(0, 194, 203, 0.6);
+      box-shadow: 0 15px 40px rgba(0, 194, 203, 0.3);
+      background: rgba(30, 41, 59, 0.8);
+    }
+
+    .note-card a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .card-icon {
+      width: 45px;
+      height: 45px;
+      background: linear-gradient(135deg, #00c2cb, #0088a3);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .card-number {
+      font-size: 14px;
+      color: #00c2cb;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #ffffff;
+      line-height: 1.4;
+      margin-top: 5px;
+    }
+
+    .card-subtitle {
+      font-size: 13px;
+      color: #8a8a8a;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .complete-notes {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, rgba(0, 194, 203, 0.15), rgba(15, 52, 96, 0.6));
+      border: 2px solid rgba(0, 194, 203, 0.4);
+    }
+
+    .complete-notes .card-icon {
+      width: 55px;
+      height: 55px;
+      font-size: 28px;
+    }
+
+    .complete-notes .card-title {
+      font-size: 22px;
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        padding: 0 20px;
+        height: 70px;
+      }
+
+      .header-title {
+        font-size: 18px;
+      }
+
+      .back-btn {
+        padding: 10px 20px;
+        font-size: 13px;
+      }
+
+      .page-title h1 {
+        font-size: 28px;
+      }
+
+      .notes-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .complete-notes {
+        grid-column: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <div class="header-left">
+      <a href="/" class="back-btn">Back to Home</a>
+      <div class="header-title">Maths Course</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="content-wrapper">
+      <div class="page-title">
+        <h1>Engineering Mathematics</h1>
+        <p>Complete study materials and chapter-wise notes</p>
+      </div>
+
+      <div class="notes-grid">
+        <div class="note-card complete-notes">
+          <a href="https://drive.google.com/file/d/1AbhGKIOhmZW9BmF_T_b2Q0qmRQr5Ev5e/view?usp=drivesdk" target="_blank">
+            <div class="card-header">
+              <div class="card-icon">📚</div>
+              <div>
+                <div class="card-number">COMPLETE</div>
+                <div class="card-title">Full DSGT Notes Collection</div>
+              </div>
+            </div>
+            <div class="card-subtitle">Access the complete notes package • All chapters included</div>
+          </a>
+        </div>
+
+        <div class="note-card">
+          <div class="card-header">
+            <div class="card-icon">📐</div>
+            <div>
+              <div class="card-number">CHAPTER 01</div>
+              <div class="card-title">Linear Algebra</div>
+            </div>
+          </div>
+          <div class="card-subtitle">Vectors, matrices, and linear transformations</div>
+        </div>
+
+        <div class="note-card">
+          <div class="card-header">
+            <div class="card-icon">📊</div>
+            <div>
+              <div class="card-number">CHAPTER 02</div>
+              <div class="card-title">Linear & Non-Linear Programming</div>
+            </div>
+          </div>
+          <div class="card-subtitle">Optimization problems and simplex method</div>
+        </div>
+
+        <div class="note-card">
+          <div class="card-header">
+            <div class="card-icon">🔢</div>
+            <div>
+              <div class="card-number">CHAPTER 03</div>
+              <div class="card-title">Modular Arithmetic</div>
+            </div>
+          </div>
+          <div class="card-subtitle">Number theory and congruence relations</div>
+        </div>
+
+        <div class="note-card">
+          <div class="card-header">
+            <div class="card-icon">〰️</div>
+            <div>
+              <div class="card-number">CHAPTER 04</div>
+              <div class="card-title">Fourier Series</div>
+            </div>
+          </div>
+          <div class="card-subtitle">Signal processing and periodic functions</div>
+        </div>
+
+        <div class="note-card">
+          <div class="card-header">
+            <div class="card-icon">📈</div>
+            <div>
+              <div class="card-number">CHAPTER 05</div>
+              <div class="card-title">Statistical Techniques</div>
+            </div>
+          </div>
+          <div class="card-subtitle">Data analysis and hypothesis testing</div>
+        </div>
+
+        <div class="note-card">
+          <div class="card-header">
+            <div class="card-icon">🎲</div>
+            <div>
+              <div class="card-number">CHAPTER 06</div>
+              <div class="card-title">Probability</div>
+            </div>
+          </div>
+          <div class="card-subtitle">Random variables and distributions</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
