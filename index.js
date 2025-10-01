@@ -38,8 +38,8 @@ app.get("/excel" ,(req,res)=>{
     res.render("excel");
 })
 
-app.get("/others" ,(req,res)=>{
-    res.render("others");
+app.get("/rubrics" ,(req,res)=>{
+    res.render("rubrics");
 })
 
 app.get("/dsgt" ,(req,res)=>{
