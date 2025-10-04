@@ -16,6 +16,7 @@
         background: linear-gradient(45deg, rgb(11, 70, 105), rgb(129, 0, 26));
         font-family: Arial, sans-serif;
         background-attachment: fixed;
+
     }
 
     .header {
@@ -155,6 +156,7 @@
         gap: 35px;
         justify-content: center;
         padding-bottom: 50px;
+
     }
 
     .card {
@@ -380,6 +382,58 @@
         background: rgba(255, 255, 255, 0.3);
         margin-bottom: 40px;
     }
+
+
+    .marquee-wrap {
+        overflow: hidden;
+        white-space: nowrap;
+        box-sizing: border-box;
+        border: 1px solid #ddd;
+        padding: 10px;
+        background: #f8f8f8;
+    }
+
+    .marquee {
+        display: inline-block;
+        padding-left: 100%;
+        /* start off-screen on the right */
+        animation: marquee 12s linear infinite;
+        /* to make it focusable for accessibility */
+        outline: none;
+    }
+
+    /* speed: change 12s to smaller for faster, larger for slower */
+    @keyframes marquee {
+        0% {
+            transform: translateX(0%);
+        }
+
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    /* Pause on hover / focus */
+
+
+    /* make links inside look normal */
+    .marquee a {
+        text-decoration: none;
+        color: #ff0000;
+        margin-right: 2rem;
+    }
+
+    .marquee-wrap {
+        background-color: rgba(31, 8, 8, 0.4);
+        width: 900px;
+        display: flex;
+        justify-self: center;
+
+        margin-top: 20px;
+
+
+
+    }
 </style>
 
 <body>
@@ -399,6 +453,15 @@
             "This website provides complete, well-organized notes for the current semester, designed to help students
             save time and study efficiently. Whether you missed a lecture or need quick revision, you'll find reliable
             and easy-to-understand material here."
+        </div>
+    </div>
+
+
+    <div class="marquee-wrap" aria-label="Breaking news">
+        <div class="marquee" tabindex="0">
+            <a href="#">All notes and Assignment are updated here</a>
+            <a href="#">🔔 Check Daily for new updates</a>
+
         </div>
     </div>
 
@@ -425,8 +488,6 @@
             <a href="/rubrics">Rubrics</a>
         </div>
     </div>
-
-    
 </body>
 
 </html>
