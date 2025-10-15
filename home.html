@@ -65,14 +65,14 @@
         .cards {
             background-color: #1b1a1a;
             display: grid;
-            grid-template-columns: repeat(3 , 1fr);
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
             padding: 40px;
             overflow-y: auto;
         }
 
         .card {
-            height: 300px;
+            height: 200px;
             background-color: #212529;
             border: 1px solid #bd7904;
             border-radius: 15px;
@@ -286,9 +286,9 @@
     <div class="mid">
         <div class="sidebar">
             <ul>
-                <li><a href="/home">HOME</a></li>
-                <li><a href="/about">ABOUT</a></li>
-                <li><a href="/contact">CONTACT</a></li>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">CONTACT</a></li>
             </ul>
             <div class="notice">
                 <div class="head1">
